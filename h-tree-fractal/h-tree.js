@@ -57,3 +57,13 @@ function drawTree(startX,startY,len,angle,branchWidth,color1,color2){
 }
 
 drawTree(canvas.width/2,canvas.height-80,120,0,2,'brown','green');
+
+function animate(){
+ 	requestAnimationFrame(animate);
+ 	c.clearRect(0,0,innerWidth,innerHeight);
+ 	drawTree(canvas.width/2,canvas.height-80,120,angled,2,'brown','green');
+
+
+ }	
+
+ animate();
