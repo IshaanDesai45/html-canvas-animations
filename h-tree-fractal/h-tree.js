@@ -20,11 +20,11 @@ canvas.addEventListener("mousemove",(event)=>{
 	 angled = Math.atan(slope);
 	
 	if(angled>0)
-		angled = (Math.PI/2)- angled;
+		angled = -((Math.PI/2)- angled);
 	else
 		angled = (Math.PI/2)+ angled;
 	// angle1 = angled || 0;
-	// angled=angled*180/Math.PI;
+	angled=angled*180/Math.PI;
 	// console.log(angled);
 
 });
@@ -49,8 +49,8 @@ function drawTree(startX,startY,len,angle,branchWidth,color1,color2){
 
 	}
 
-	drawTree(0,-len,len*0.75,angle+15,branchWidth,'brown','green');
-	drawTree(0,-len,len*0.75,angle-15,branchWidth,'brown','green');
+	drawTree(0,-len,len*0.75,angle+angled,branchWidth,'brown','green');
+	drawTree(0,-len,len*0.75,angle-angled,branchWidth,'brown','green');
 
 	c.restore()
 
@@ -61,7 +61,7 @@ drawTree(canvas.width/2,canvas.height-80,120,0,2,'brown','green');
 function animate(){
  	requestAnimationFrame(animate);
  	c.clearRect(0,0,innerWidth,innerHeight);
- 	drawTree(canvas.width/2,canvas.height-80,120,angled,2,'brown','green');
+ 	drawTree(canvas.width/2,canvas.height-80,120,0,2,'brown','green');
 
 
  }	

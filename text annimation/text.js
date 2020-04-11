@@ -2,12 +2,12 @@ let canvas = document.querySelector("canvas");
 let c = canvas.getContext("2d");
 
 var ww=canvas.width = window.innerWidth;
-var wh=canvas.height = window.innerHeight;
+var wh=canvas.height = window.innerHeight/2;
 
 var color = ["#667eea"," #764ba2"," #46aef7"];
 var particlesArray = [];
 
-let copy = "HELLO WORLD";
+let copy = "Cyborg";
 c.font = "bold "+(ww/8)+"px sans-serif";
 c.textAlign = "center";
 c.fillText(copy, ww/2, wh/2.2);
@@ -16,7 +16,7 @@ var data  = c.getImageData(0, 0, ww, wh).data;
 var mouse ={
 	x:null,
 	y:null,
-	radius :50
+	radius:50
 }
 
 window.addEventListener("mousemove",function(event){
@@ -57,8 +57,8 @@ class particles {
 				var force =(maxDistance-distance)/maxDistance;
 				if (force<0) 
 					force =0;
-				var dx = (forceDirectionX*force*2*0.6);
-				var dy = (forceDirectionY*force*2*0.6);
+				var dx = (forceDirectionX*force*2*0.9);
+				var dy = (forceDirectionY*force*2*0.9);
 
 
 				if (distance < mouse.radius + this.radius) {
